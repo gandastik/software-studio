@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      body {
+        height: fit-content;
+        display: grid;
+        gap: 1rem;
+        align-items: center;
+        width: 60%;
+        margin: auto auto;
+      }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      header {
+        height: fit-content;
+        background-color: gold;
+        text-align: center;
+        color: blue;
+      }
+
+      .headline {
+        color: violet;
+        text-align: center;
+      }
+
+      .profile {
+        display: flex;
+        justify-content: space-between;
+        color: cornflowerblue;
+      }
+
+      .profile img {
+        border: 3px solid cornflowerblue;
+        padding: 2rem;
+        width: 200px;
+      }
+
+      .profile__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .profile__content time {
+        color: violet;
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: auto auto;
+        /* gap: 1rem; */
+      }
+
+      .content section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .last {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto auto;
+        align-items: flex-end;
+        /* gap: 1rem; */
+      }
+
+      progress {
+        border-radius: 0;
+      }
+
+      aside {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: span 2;
+        font-size: 2.5rem;
+      }
+
+      hr {
+        height: 5px;
+        background: #000;
+      }
+
+      form {
+        width: fit-content;
+      }
+
+      form p {
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        text-align: center;
+        background-color: gold;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SW Studio Today</h1>
+    </header>
+
+    <div class="container">
+      <h2 class="headline">The record of the CSS Class</h2>
+
+      <section class="profile">
+        <div class="profile__content">
+          <p>
+            Reported by<br />
+            Mr. Kitsadang Sawangsiripol<br />
+            (Kate)<br />
+            ID 63010035
+          </p>
+          <time datetime="2023-02-02">Feb 02, 2023</time>
+        </div>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="profile-icon"
+        />
+      </section>
+
+      <article class="content">
+        <section>
+          <h2>Introduction</h2>
+          <p>describe your background about CSS e.g.</p>
+          <ul>
+            <li>do you know CSS?</li>
+            <li>Have you ever been using CSS?</li>
+            <li>Have you ever worked with CSS before?</li>
+            <li>Have you have any idea how CSS works?</li>
+            <li>What are you expecting from CSS?</li>
+            <li>etc.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>The expectation</h2>
+          <p>describe your expectation for today's class</p>
+          <p>you can list it like this:</p>
+          <ol>
+            <li>expect #1</li>
+            <li>expect #2</li>
+            <li>expect #3</li>
+          </ol>
+        </section>
+      </article>
+
+      <section class="last">
+        <p>
+          Progess of today's class
+          <progress value="30" max="100"></progress>
+        </p>
+        <aside>
+          <hr />
+          <br />
+          <br />
+          <p><em>quote of today's class</em></p>
+          <br />
+          <br />
+          <hr />
+        </aside>
+
+        <section>
+          <p>registry for lucky draw</p>
+          <form action="">
+            <fieldset>
+              <label>Name:*</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="John Smith"
+                required
+              /><br />
+              <label>Email:*</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="adb@def.com"
+                required
+              /><br />
+              <label>Tel:*</label>
+              <input
+                type="tel"
+                name="tel"
+                placeholder="0xx-xxxxxx"
+                required
+              /><br />
+              <input type="submit" value="Submit" />
+            </fieldset>
+          </form>
+        </section>
+      </section>
+    </div>
+    <footer>ce.kmitl all rights reserved & copyright 2023</footer>
+  </body>
+</html>
