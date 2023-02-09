@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ex02_1</title>
     <style>
       * {
         margin: 0;
@@ -165,7 +165,7 @@
     <section class="last">
       <p>
         Progess of today's class
-        <progress value="30" max="100"></progress>
+        <progress value="40" max="100"></progress>
       </p>
       <aside>
         <hr />
@@ -181,28 +181,32 @@
         <p>registry for lucky draw</p>
         <form action="">
           <fieldset>
-            <label>Name:*</label>
+            <label>Name:</label><em>*</em>
             <input
               type="text"
-              name="name"
+              id="name"
               placeholder="John Smith"
+              autofocus
               required
             /><br />
-            <label>Email:*</label>
+            <label>email:</label><em>*</em>
             <input
               type="email"
-              name="email"
-              placeholder="adb@def.com"
+              id="email"
+              placeholder="abc@def.com"
+              autofocus
               required
             /><br />
-            <label>Tel:*</label>
+            <label>Tel:</label><em>*</em>
             <input
               type="tel"
-              name="tel"
-              placeholder="0xx-xxxxxx"
+              id="tel"
+              placeholder="0xx-xxxxxxx"
+              pattern="[0-9]{3}-[0-9]{7}"
+              autofocus
               required
             /><br />
-            <input type="submit" value="Submit" />
+            <input type="submit" />
           </fieldset>
         </form>
       </section>
