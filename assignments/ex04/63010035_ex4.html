@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="maincontainer"></div>
+    <script>
+      let w;
+
+      const dateTimeBgColors = [
+        "red",
+        "green",
+        "blue",
+        "yellow",
+        "pink",
+        "aqua",
+      ];
+      const dateTimeTextColors = [
+        "black",
+        "blue",
+        "red",
+        "purple",
+        "green",
+        "brown",
+      ];
+
+      const title = document.createElement("h1");
+      title.innerHTML = "Exercise 04: Javascript&DOM";
+
+      const maincontainer = document.getElementById("maincontainer");
+
+      const dateTimeButton = document.createElement("button");
+      let dateTimeButtonIsClicked = false;
+      dateTimeButton.innerHTML = "Click me to display Date and Time";
+
+      dateTimeButton.onclick = () => {
+        if (dateTimeButtonIsClicked === false) {
+          dateTimeButtonIsClicked = true;
+
+          if (typeof Worker !== "undefined") {
+            w = new Worker("worker.js");
+            w.onmessage = function (event) {
+              dateTimeButton.innerHTML = event.data;
+
+              dateTimeButton.style.backgroundColor =
+                dateTimeBgColors[event.data.getSeconds() % 6];
+              dateTimeButton.style.color =
+                dateTimeTextColors[event.data.getSeconds() % 6];
+            };
+          }
+          dateTimeButton.style.top = "0";
+          dateTimeButton.style.right = "0";
+          dateTimeButton.style.position = "fixed";
+
+          maincontainer.appendChild(dateTimeParagraph);
+        } else {
+          w.terminate();
+          w = undefined;
+
+          dateTimeButton.style.position = "relative";
+          dateTimeButtonIsClicked = false;
+        }
+      };
+
+      const personalContainer = document.createElement("div");
+      const personalInfo = document.createElement("p");
+      let personalInfoIsClicked = false;
+      personalInfo.innerHTML = "Personal Info";
+      personalInfo.style.width = "fit-content";
+      personalInfo.style.color = "pink";
+      personalInfo.style.textDecoration = "underline";
+      personalInfo.style.cursor = "pointer";
+      personalInfo.onmouseenter = () => {
+        personalInfo.style.backgroundColor = "yellow";
+        personalInfo.style.color = "blue";
+      };
+      personalInfo.onmouseleave = () => {
+        personalInfo.style.backgroundColor = "white";
+        personalInfo.style.color = "pink";
+      };
+      const personalUnorderedList = document.createElement("ul");
+      const name = document.createElement("li");
+      name.innerHTML = "Kitsadang Sawangsiripol, ID: 63010035";
+      const subject = document.createElement("li");
+      subject.innerHTML = "Subject: Software Studio";
+      const semester = document.createElement("li");
+      semester.innerHTML = "Semester: 2/2022";
+      personalUnorderedList.appendChild(name);
+      personalUnorderedList.appendChild(subject);
+      personalUnorderedList.appendChild(semester);
+
+      personalInfo.onclick = () => {
+        if (personalInfoIsClicked === false) {
+          personalContainer.appendChild(personalUnorderedList);
+          personalInfoIsClicked = true;
+        } else {
+          personalContainer.removeChild(personalUnorderedList);
+          personalInfoIsClicked = false;
+        }
+      };
+
+      const snapshotTitle = document.createElement("h1");
+      snapshotTitle.innerHTML = "Snapshots";
+      const pictureContainer = document.createElement("div");
+      const img = document.createElement("img");
+      img.setAttribute(
+        "src",
+        "https://i.pinimg.com/originals/e5/2c/1a/e52c1a5f43aa94440e91a33d7872faf9.png"
+      );
+      pictureContainer.appendChild(img);
+
+      const snapshotUnorderedList = document.createElement("ul");
+
+      const snapshotList1 = document.createElement("li");
+      const fireWorks = document.createElement("a");
+      fireWorks.style.color = "blue";
+      fireWorks.style.textDecoration = "underline";
+      fireWorks.style.cursor = "pointer";
+      fireWorks.innerHTML = "Fireworks";
+      snapshotList1.appendChild(fireWorks);
+      snapshotUnorderedList.appendChild(snapshotList1);
+      fireWorks.onclick = () => {
+        img.setAttribute(
+          "src",
+          "https://pbs.twimg.com/profile_images/1257565005391835136/tRjpU4IU_400x400.jpg"
+        );
+        pictureContainer.appendChild(img);
+      };
+
+      const snapshotList2 = document.createElement("li");
+      const crest = document.createElement("a");
+      crest.style.color = "blue";
+      crest.style.textDecoration = "underline";
+      crest.style.cursor = "pointer";
+      crest.innerHTML = "Crest";
+      snapshotList2.appendChild(crest);
+      snapshotUnorderedList.appendChild(snapshotList2);
+      crest.onclick = () => {
+        img.setAttribute(
+          "src",
+          "https://cdn.geekwire.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-09-at-4.34.29-PM.png"
+        );
+        pictureContainer.appendChild(img);
+      };
+
+      const snapshotList3 = document.createElement("li");
+      const action = document.createElement("a");
+      action.style.color = "blue";
+      action.style.textDecoration = "underline";
+      action.style.cursor = "pointer";
+      action.innerHTML = "Action";
+      snapshotList3.appendChild(action);
+      snapshotUnorderedList.appendChild(snapshotList3);
+      action.onclick = () => {
+        img.setAttribute(
+          "src",
+          "https://images.unsplash.com/photo-1503963325714-4b88d72d7ada?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=906&q=80"
+        );
+        pictureContainer.appendChild(img);
+      };
+      const snapshotList4 = document.createElement("li");
+      const buffalo = document.createElement("a");
+      buffalo.style.color = "blue";
+      buffalo.style.textDecoration = "underline";
+      buffalo.style.cursor = "pointer";
+      buffalo.innerHTML = "Buffalo";
+      snapshotList4.appendChild(buffalo);
+      snapshotUnorderedList.appendChild(snapshotList4);
+      buffalo.onclick = () => {
+        img.setAttribute(
+          "src",
+          "https://pbs.twimg.com/tweet_video_thumb/FoS4yyvXEAAhJE5.jpg"
+        );
+        pictureContainer.appendChild(img);
+      };
+
+      maincontainer.appendChild(title);
+      maincontainer.appendChild(dateTimeButton);
+      maincontainer.appendChild(personalContainer);
+      personalContainer.appendChild(personalInfo);
+      maincontainer.appendChild(snapshotTitle);
+      maincontainer.appendChild(snapshotUnorderedList);
+      maincontainer.appendChild(pictureContainer);
+    </script>
+  </body>
+</html>
