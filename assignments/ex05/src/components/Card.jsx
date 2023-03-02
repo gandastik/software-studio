@@ -57,7 +57,7 @@ const Card = ({ vote, setVote, type, title, img }) => {
           >
             Click to Vote
           </button>
-          <section className="flex items-center">
+          <section className="flex items-center border-2 border-black bg-lime-400 p-3 text-xl rounded-lg text-purple-500 font-semibold">
             {isMin ? "MIN" : isMax ? "MAX" : vote}
           </section>
           <button
