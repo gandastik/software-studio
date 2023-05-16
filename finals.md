@@ -1,3 +1,39 @@
+## Overview
+
+### Web Concept
+![](https://media.discordapp.net/attachments/1014398974649708624/1108016907459760128/image.png?width=1225&height=685)
+### Hypertext Transfer Protocol (HTTP)
+- request - reply protocol (RR)
+- HTTP Resources are identify by URI (or URL)
+- 2 types of message
+	- request message
+	- response message
+- HTTP Protocol (2 common methods)
+	- Get: requesting resources
+	- Post
+![](https://media.discordapp.net/attachments/1014398974649708624/1108018313956700261/image.png)
+- **query string** `q.php?id=123&name=John`
+![](https://media.discordapp.net/attachments/1014398974649708624/1108022966727475240/image.png)
+- datalength to be sent: get~4000, post=unlimited
+- can send a chunk of data: get=no, post=yes
+- location of data in message: get=URL, post=body
+- can access CGI without using Form: get=yes, post=no
+- can retreive file or other resource: get=yes, post=no
+
+### HTML5
+- released as a living-standard by WHATWG(Web Hypertext Application Technology Working Group) in 2012
+- W3C developed a definitive HTML5
+	- html5 released 2014
+	- html5.1 2nd edition released 2017
+	- html5.2 released 2017
+### HTML
+- Hypertext Markup Language
+- Tags = tokens enclosed by angle brackets - < >
+- Elements define the structure of document and lay the foundation for its presentstaion and manipulation, contained within one or two tags
+- Attributes = Tag modifiers compose of 2 parts: name and value
+- mostly case insensitive and not necessary to quote the value part of the attribute
+- 
+
 ## HTML 💻
 - Web page creation
 - Main Idea: **use elements to structure the content**
@@ -79,6 +115,8 @@
 
 #### XHTML5
 - if HTML5 is too loose for you, XHTML5 may be your solution
+- to use XHTML5 -> add xhtml namespace to the `<html>`
+	- eg. `<html xmlns="https://www.w3.org/1999/xhtml"`
 
 ### Structuring Documents for the web
 - Heading 6 levels from `<h1> to <h6>`
@@ -103,14 +141,14 @@
 	- charset: `<a href="http://www.test.ac.th/ charset="ISO-8859-11>go</a>`
 	- hreflang
 	- target: `<a href="http://www.test.ac.th/ target="_blank">go</a>`
-	- tabindex
+	- tabindex: `<a href="http://www.test.ac.th/ tabindex="1">go</a>`
 
 ### Image, Audio, Video
 - Adding image to the page: `<img sr="image.png" alt="logo">`
 - specify the size of image
 - align
 - border
-- space
+- space: `<img src="image.png" hspace="15" vspace="15">`
 
 ### Form
 - 2 attributes
@@ -126,6 +164,15 @@
 		- multipart/form-data = data encoding in case of uploading image or file
 		- accept-charset = specifies character encoding used
 		- target = specifies which frame the form's result will be displayed
+- eg.
+	- `<textarea name="something" rows="20" cols="50">`
+	- `<input type="password">`
+	- `<input type="submit">`
+	- `<input type="reset">`
+	- `<input type="image" src="submit.jpg">`
+	- `<input type="checkbox">`
+	- `<input type="radio">`
+	- `<input type="file" accept="image/">`
 
 ### Semantic elements - document structure
 - HTML4
@@ -140,6 +187,131 @@
 	- `<nav>`
 	- `<section>`
 	- `<main>`
+- `<time>`: `<time datetime="2022-02-07">time</time>`
+
+#### Client-side validation
+- perform by browser
+- use attributed "required"
+- `<input type="text" required>`
+#### Stop validate
+- disable validate feature
+- use attribute "novalidte" or "formnovalidate"
+#### Regular Expression
+- `<input type="text" pattern="[A-Z]{3}-[a-z]{2}-[0-9]{6}"`
+##### New input types in HTML5
+- email, url, search, tel, number, range, date, month, week, time*, color*
+
+## CSS
+- CSS: Cascading Style Sheets
+- created by W3C
+- 3 ways:
+	- internal
+	- external
+	- inline
+### Advantages of using CSS
+- the presentation of the website can be centralized
+- users can compose style sheet of their own for the website
+- it is possible for users to select the CSS that suit their look and feel
+- style sheets allow content to be optimized for more than 1 type of device
+- using external CSS make the document size smaller
+
+### Ways
+- inline CSS: `<p style="color:blue;"></p>`
+- internal CSS:
+```
+<head>
+	<style>
+		css
+	</style>
+</head>
+```
+- external import file with .css
+```
+<head>
+	<link rel="stylesheet" type="text/css" href="xstyle.css">
+	or
+	@import url(xstyle.css);
+</head>
+```
+- ordering
+	- inline > internal and external > browser default
+
+### CSS Rules and Syntax
+- CSS can use white space and line break for purposes of readability
+- comment text is put inside `/* */`
+- CSS is composed of 2 parts
+	- type selector or selector in short
+	- declaration -> property:value
+### Length and measurement options
+- Absolute
+	- in, cm, mm, pt -> 1 point = 1/72 inch, pc -> 1 picas = 12 points
+- Relative
+	- em: length relates to font-size (font-size:10px, 2em=20px)
+	- ex: length relates to font-height
+	- px: pixels (length relative to viewing device)
+- Percentage
+### Colors
+- keywords: black, red, orange, etc.
+- rgb: `rgb(128,128,128)`
+- hexadecimal color: `color: #FF0000`
+- short hex color: `color: #FFF`
+### Selector
+- address the target elements to be CSS-formatted
+- a html tag
+- can be grouping
+- universal (wild card) selector
+	- `*`: apply the CSS rule to the entire document
+- contextual/descendant selectors
+	- `div h1`
+	- `div *` universal - descendant combination
+- child selectors
+	- `h2>em` direct child selector
+- direct/indirect adjacent sibling combinators
+	- `h2 + p`
+- attribute selectors
+	- `input[type="text"]`
+- user-defined class and id selector
+
+## Responsive Web Design
+### Pseudo classse
+- `:link`
+- `a:hover`
+- `div::first-line`
+
+### Variables
+- `--color: red;`
+- `color: var(--color);`
+
+### Content layout
+- flex
+- grid
+
+### position
+- relative
+- absolute
+- fixed
+- sticky
+- inherit
+
+### Responsive (RWD)
+- viewport = viewable area of browser
+- media queries, breakpoints -> "shrink to fit"
+- others
+	- AWD: detects screen size (viewport) and then uses the most suitable static style
+	- FWD: percentage for widths
+	- Fixed Design: design based on fix pixel widths
+
+### CSS Media queries
+```
+ @media screen and (min-width: n px)
+```
+
+## Bootstrap
+- frontend framework
+- layout
+	- `.container`: max width at each breakpoint
+	- `.container-fluid`: 100% width at all breakpoint
+	- `.container-[breakpoint]`: 100% width until specific breakpoint
 
 ## Javascript & DOM
 
@@ -328,6 +500,12 @@ document.cookie = "username=John Doe;expires=Mon, 6 Feb 2023 12:00:00 UTC;path=/
 - level 1: allows Navigation of DOM, content manipulation
 - level 2: support namespace, filtered views and event
 - level 3: has many specifications
+	- core
+	- load and save
+	- XPath
+	- views and formatting
+	- requirements
+	- validation
 
 #### Fundamental Data Types
 - Document object
@@ -407,6 +585,29 @@ document.cookie = "username=John Doe;expires=Mon, 6 Feb 2023 12:00:00 UTC;path=/
 - the time button -> at least 6 set of colors
 	- chaning color every second
 	- use web workers -> another script file
+
+## React
+- UI Library
+- component-based
+- react components
+	- jsx
+	- element & component
+	- state & props
+	- virtual DOM
+
+### Props
+- properties
+- uni-directional (parent to child)
+- passing data
+- readonly
+
+### States
+- data storage within component
+- creates and manages by component
+- state cannot be passed to other components
+- state changes -> DOM re-rendering
+	- just a part of that component that state are in
+- use callback function to pass data from child to parent
 
 ## Backend
 
@@ -551,4 +752,3 @@ public IActionResult Index(string fname) {
 
 ### AJAX
 - Asynchronous Javascript And XML
-
